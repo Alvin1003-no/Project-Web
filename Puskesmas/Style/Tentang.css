@@ -1,0 +1,208 @@
+/* Navbar */
+img {
+    width: 75px;
+    height: 86px;
+}
+
+ul{
+    margin-left: 800px;
+}
+
+span{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.banner-card {
+    position: relative;
+}
+
+.banner-card img{
+    width: 100% ;
+    height: 400px;
+}
+
+.banner-text {
+    position: absolute;
+    top: 100px;
+    padding: 20px;
+
+}
+
+.Welcome{
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: -20px;
+    margin-left: 700px;
+
+}
+
+.Place {
+    font-weight: 700 ;
+    margin-left: 550px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 40px ;
+}
+
+/* Body */
+.Pelayanan {
+    margin-top: 150px;
+    font-size: 40px;
+    margin-left: 60px ;
+}
+
+.PlaceKartasura{
+    font-weight: 700;
+    font-size: 75px;
+    margin-left: 58px;
+    margin-top: -40px;
+    color: #006400;
+}
+
+.Gambar{
+    margin-left: 60px;
+    margin-top: 30px;
+}
+
+.Gambar img{
+    width: 1100px;
+    height: 550px;
+    border-radius: 20px;
+}
+
+.sejarah{
+    margin-left: 60px;
+    margin-top: 20px;
+}
+
+.sejarah p{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.point ul{
+    margin-left: 80px ;
+}
+
+.point li{
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.point p{
+    margin-left: 115px;
+    margin-top: -20px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/* Footer */
+.kotak {
+    width: 100%;
+    height: 400px;
+    margin-top: 200px; 
+    background-color: rgba(221, 221, 221, 0.6); /* #DDDDDD dengan opacity 60% */
+}
+
+.kotak img {
+    width: 245px;
+    height: 60px;
+    margin-top: 50px;
+    margin-left: 40px;
+}
+
+.kirifooter{
+    margin-left: 300px;
+    margin-top: 10px;
+    width: 500px;
+}
+
+.kirifooter label{
+    font-weight: 700;
+    font-size: 38px;
+    color: #006400;
+}
+
+.kirifooter p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-left: 38px;
+    width: 400px;
+    height: 65px;
+}
+
+.garis hr {
+    margin-top: 10px;
+    margin-left: 45px;
+    margin-right: 45px;
+    width: 1600px;
+    color: #006400;
+    height: 2px; /*  ketebalan hr */
+    border: none; /*  untuk menghilangkan border default */
+    background-color: #006400; /* menggunakan background-color untuk warna */
+}
+
+.pojokbawah{
+    margin-left: 45px;
+    margin-top: -20px;
+}
+
+.pojokbawah label{
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.ikon{
+    margin-top: -105px;
+    margin-left: 1005px;
+    width: 10px;
+}
+
+.ikon svg{
+    color: #006400;
+}
+
+.location {
+    margin-top: -215px;
+    margin-left: 300px;
+    width: 10px ;
+}
+
+.location svg{
+    color:#006400;
+}
+
+.email{
+    margin-top: 60px;
+    margin-left: 298px;
+    width: 10px;
+}
+
+.email svg{
+    color: #006400;
+}
+
+.iframe-container{
+    margin-left: 60px;
+}
+
+.iframe-container iframe{
+    border-radius: 20px ;
+}
+
+.kananfooter{
+    margin-left: 200px;
+    margin-top: -200px;
+}
+
+.kananfooter label{
+    font-weight: 700;
+    font-size: 38px;
+    color: #006400;
+    margin-top: -40px;
+    margin-left: 600px;
+    margin-bottom: 50px;
+    width: 240px;   
+}
