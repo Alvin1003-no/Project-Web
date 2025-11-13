@@ -1,0 +1,350 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+    width: 75px;
+    height: 86px;
+}
+
+ul{
+    margin-left: 800px;
+}
+
+span{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.banner-card {
+    position: relative;
+}
+
+.banner-card img{
+    width: 100% ;
+    height: 400px;
+}
+
+.banner-text {
+    position: absolute;
+    top: 100px;
+    padding: 20px;
+
+}
+
+.Welcome{
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: -20px;
+    margin-left: 590px;
+
+}
+
+.Place {
+    font-weight: 700 ;
+    margin-left: 550px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 40px ;
+}
+
+.Pelayanan {
+    margin-top: 150px;
+    font-size: 40px;
+    margin-left: 60px ;
+}
+
+.PlaceKartasura{
+    font-weight: 700;
+    font-size: 75px;
+    margin-left: 58px;
+    margin-top: -40px;
+    color: #006400;
+}
+
+.Jam{
+    margin-top: 100px;
+    font-size: 32px;
+    margin-left: 69px;
+    width: 250px;
+    height: 10px;
+}
+
+
+.Circle{
+    background-color: #006400;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-left: 60px;
+    margin-top: 50px;
+}
+
+.CircleDua{
+    background-color: #006400;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-left: 800px;
+    margin-top: -309px;
+}
+
+.IconJam svg{
+    margin-top: 15px;
+    margin-left: 15px;
+    color: white;
+}
+
+.HariPertama{
+    margin-top: -55px;
+    margin-left: 140px;
+}
+
+.Day{
+    font-size: 32px;
+    font-weight: 500;
+    width: 250px;
+}
+
+.Clock{
+    font-size: 24px;
+    margin-top: -15px;
+    font-weight: 500;
+}
+
+.HariKedua{
+    margin-left: 140px;
+}
+
+.HariKetiga{
+    margin-left: 140px;
+}
+
+.Tengah{
+    width: 100%;
+    height: 200px;
+    margin-top: 250px;
+}
+
+.ProgramLayanan{
+    margin-top: 60px;
+    margin-left: 90px;
+    width: 500px;
+}
+
+.Layanan1{
+    font-size: 64px;
+    font-weight: 700;
+    color: #006400;
+    width: 500px;
+   
+}
+
+.Layanan2{
+    font-size: 64px;
+    font-weight: 700;
+    color: #006400;
+    margin-top: -40px;
+    width: 500px;
+}
+
+.NoTelp{
+    margin-top: -55px;
+    margin-left: 880px;
+}
+
+.Telp{
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.Telephone svg{
+    color: white;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+.No{
+    font-size: 24px;
+    margin-top: -15px;
+    font-weight: 500;
+}
+
+.Tombol button{
+    width: 300px; 
+    height: 50px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; 
+    margin-left: 90px;
+}
+
+.Tombol a{
+    text-decoration: none;
+}
+
+.kanan{
+    margin-top: -210px;
+
+}
+
+.Bab {
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: -65px;
+    margin-left: 980px;
+    color: rgb(0, 0, 0);
+    width: 450px;
+}
+
+.Isi{
+    font-size: 20px;
+    margin-top: -10px;
+    margin-left: 980px;
+    color: rgb(0, 0, 0);
+    width: 700px;
+}
+
+.Circle4{
+    background-color: #006400;
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    margin-left: 900px;
+    margin-top: 20px;
+}
+
+.Circle4 p{
+    padding-top: 10px;
+    margin-left: 20px;
+    font-size: 24px;
+    color: rgb(255, 255, 255);
+    width: 100px;
+}
+
+/* Kotak Berita */
+.Berita{
+    font-size: 64px;
+    font-weight: 700;
+    color: #006400;
+    width: 500px;
+    margin-top: 100px;
+    margin-left: 60px;
+}
+
+/* Card */
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.card2 img{
+    width: 460px;
+    height: 300px;
+    border-radius: 10px;
+    
+}
+
+.keterangan{
+    margin-top: 35px;
+    text-align: center;
+}
+
+.selengkapnya{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.kotak {
+    width: 100%;
+    height: 400px;
+    margin-top: 350px; 
+    background-color: rgba(221, 221, 221, 0.6); /* #DDDDDD dengan opacity 60% */
+}
+
+.kotak img {
+    width: 245px;
+    height: 60px;
+    margin-top: 50px;
+    margin-left: 40px;
+}
+
+.kirifooter{
+    margin-left: 300px;
+    margin-top: 10px;
+    width: 500px;
+}
+
+.kirifooter label{
+    font-weight: 700;
+    font-size: 38px;
+    color: #006400;
+}
+
+.kirifooter p {
+    font-size: 18px;
+    font-weight: 500;
+    margin-top: 10px;
+    margin-left: 38px;
+    width: 400px;
+    height: 65px;
+}
+
+.garis hr {
+    margin-top: 0px;
+    margin-left: 45px;
+    margin-right: 45px;
+    width: 1600px;
+    color: #006400;
+    height: 2px; /*  ketebalan hr */
+    border: none; /*  untuk menghilangkan border default */
+    background-color: #006400; /* menggunakan background-color untuk warna */
+}
+
+.pojokbawah{
+    margin-left: 45px;
+    margin-top: -20px;
+}
+
+.pojokbawah label{
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.location {
+    margin-top: -215px;
+    margin-left: 300px;
+    width: 10px ;
+}
+
+.location svg{
+    color:#006400;
+}
+
+.email{
+    margin-top: 60px;
+    margin-left: 298px;
+    width: 10px;
+}
+
+.email svg{
+    color: #006400;
+}
+
+.kananfooter{
+    margin-left: 400px;
+    margin-top: -200px;
+}
+
+.kananfooter label{
+    font-weight: 700;
+    font-size: 38px;
+    color: #006400;
+    margin-top: -40px;
+    margin-left: 600px;
+    margin-bottom: 50px;
+    width: 240px;   
+}
