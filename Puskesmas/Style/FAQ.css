@@ -1,0 +1,23 @@
+.judulFAQ{
+    font-size: 40px; 
+    font-weight: 700; 
+    margin-bottom: -20px; 
+    margin-left: 770px; 
+}
+
+.faq-item {
+    margin-top: 100px;
+    margin-bottom: 20px;
+    font-size: 30px;
+    margin-left: 380px;
+    margin-right: 200px;
+}
+
+.faq-item:hover .jawaban {
+    display: block;
+    font-size: 20px;
+}
+
+.jawaban {
+    display: none;
+}
