@@ -30,7 +30,7 @@
         <div class="register-left">
             <h2>Halo!</h2>
             <p>Sudah Memiliki Akun Puskesmas Gambirsari ?</p>
-            <button class="to-login-btn">Login</button>
+             <a href="LoginUser.php" class="to-login-btn">Login</a>
         </div>
 
         <!-- KANAN (Biru) -->
@@ -116,4 +116,5 @@
         </svg>
     </div>
 </body>
+
 </html>
