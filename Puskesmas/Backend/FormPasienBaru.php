@@ -1,3 +1,9 @@
+<?php
+
+include "Service/Connection.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
@@ -25,7 +31,7 @@
     crossorigin="anonymous" />
 
   <!-- Link CSS -->
-  <link rel="stylesheet" href="../Style/FormPasien.css" />
+  <link rel="stylesheet" href="../Style/FormPasienBaru.css" />
   <link rel="stylesheet" href="../Style/Hover/HoverPasien.css" />
 </head>
 
@@ -36,10 +42,10 @@
       <div class="Tengah">
         <div class="kotakluar">
           <div class="kotakdalam">
-            <h1>Formulir Pendaftaran Medical Check Up</h1>
+            <h1>Formulir Pendaftaran Pasien Baru</h1>
             <p>Isi Formulir Dengan Benar!</p>
           </div>
-          <form action="" method="post">
+          <form action="" method="post" enctype="multipart/form-data">
             <label>Nama Lengkap</label>
             <input type="text" name="Nama" class="form-control" required placeholder="Sesuai Dengan KK">
 
@@ -47,44 +53,25 @@
               <input type="number" name="Usia" class="form-control" required placeholder="Usia (Tahun)">
             </div>
 
-            <div class="BeratBadan">
-              <input type="number" name="BeratBadan" class="form-control" required placeholder="Berat Badan (kg)">
-            </div>
-
             <div class="NIK">
               <input type="number" name="NIK" class="form-control" required placeholder="Nomor Induk Kependudukan">
             </div>
 
-            <div class="Pekerjaan">
-              <label>Pekerjaan</label>
-              <input type="text" name="Pekerjaan" class="form-control" required>
+            <div class="Tanggal">
+              <input type="date" name="TanggalLahir" class="form-control" required placeholder="Tanggal Lahir">
             </div>
-
-            <div class="GayaHidup">
-              <label>GayaHidup</label><br>
-              <input type="radio" name="GayaHidup" class="form-check-input" required>
-              <label for="merokok" name="GayaHidup" class="form-check-label">Merokok</label>
-              <input type="radio" name="GayaHidup" class="form-check-input" required>
-              <label for="tidak" name="GayaHidup" class="form-check-label">Tidak Merokok</label>
-            </div>
-
-            <label>Riwayat Penyakit</label>
-            <input type="text" name="Riwayat" class="form-control" required placeholder="Jika Tidak Ada Maka Ketik `Tidak Ada'">
-
-            <label>Riwayat Alergi Obat</label>
-            <input type="text" name="Obat" class="form-control" required placeholder="Jika Tidak Ada Maka Ketik `Tidak Ada'">
 
             <div class="FotoKTP">
               <label>Foto KTP</label>
-              <input type="file" name="KTP" class="foto form-control" accept="image/*" capture="enviroment" required>
+              <input type="file" name="KTP" class="foto form-control" accept=".jpg , .jpeg , .png" capture="enviroment" required>
             </div>
 
             <div class="FotoKK">
               <label>Foto KK</label>
-              <input type="file" name="KK" class="foto form-control" accept="image/*" capture="enviroment" required>
+              <input type="file" name="KK" class="foto form-control" accept=".jpg , .jpeg , .png" capture="enviroment" required>
             </div>
             <button type="submit" style="background-color: #006400;
-             margin-top: 10px; margin-left: 50px; margin-right: 20px;">Simpan Data</button>
+             margin-top: 10px; margin-left: 50px; margin-right: 20px;" name="Simpan">Simpan Data</button>
             <button type="button" style="background-color: gray;" onclick="location.href='../Frontend/DaftarOnline.html'">Kembali</button>
           </form>
 
@@ -96,7 +83,7 @@
   <!-- Footer -->
   <footer>
     <div class="kotak">
-      <img src="Assets/pemerintah.png" alt="Logo Pemerintah" />
+      <img src="../Assets/pemerintah.png" alt="Logo Pemerintah" />
       <div class="kirifooter">
         <label>Puskesmas Kartasura</label>
         <p>
@@ -174,3 +161,84 @@
 </body>
 
 </html>
+
+
+<?php
+if (isset($_POST['Simpan'])) {
+  $NamaLengkap = mysqli_real_escape_string($Connection, $_POST['Nama']);
+  $Usia = mysqli_real_escape_string($Connection, $_POST['Usia']);
+  $NIK = mysqli_real_escape_string($Connection, $_POST['NIK']);
+  $TanggalLahir = mysqli_real_escape_string($Connection, $_POST['TanggalLahir']);
+
+  // name digunakan untuk mencetak nama file tersebut
+  // $_FILES : untuk upload gambar , dokumen , dll
+  $FotoKK = $_FILES['KK']['name'];
+  $FotoKTP = $_FILES['KTP']['name'];
+
+  // tmp_name saya gunakan untuk menyimpan data yang bersifat sementara
+  $FileTempKK = $_FILES['KK']['tmp_name']; 
+  $FileTempKTP = $_FILES['KTP']['tmp_name'];
+
+  if (!empty($FotoKK) && !empty($FotoKTP)) {
+    
+    // preg_replace itu fungsi php untuk mengganti pola dengan string lain
+    // polanya itu A-Z , a-z ,0-9 = semua huruf selain angka dan huruf
+    // contoh : nama user nya Siapa@Dimana -> Siapa_Dimana trus untuk simbol lain juga sama
+    
+    // Membuat folder berdasarkan nama lengkap user
+    $folderName = "Data Pasien " . preg_replace('/[^A-Za-z0-9]/', '_', $NamaLengkap);
+    $folderPathKK = 'DataPasien/FotoKK/' . $folderName . '/';
+    $folderPathKTP = 'DataPasien/FotoKTP/' . $folderName . '/';
+    
+    // Digunakan untuk membuat folder
+    if (!is_dir($folderPathKK)) { 
+      mkdir($folderPathKK, 0777, true);
+    }
+    // 0777 itu adalah hak akses (read + write + execute)
+
+    if (!is_dir($folderPathKTP)) {
+      mkdir($folderPathKTP, 0777, true);
+    }
+    
+    $filePathKK = $folderPathKK . $FotoKK;
+    // menggabungkan path folder dengan nama filenya 
+    $filePathKTP = $folderPathKTP . $FotoKTP;
+
+
+    // move_upload_file itu digunakan untuk menyimpan data yang tadinya bersifat sementara berubah jadi permanent
+    if (move_uploaded_file($FileTempKK, $filePathKK) && move_uploaded_file($FileTempKTP, $filePathKTP)) {
+      
+      // NamaPasien/file.jpg
+      // Simpan path relatif ke database (tanpa folder DataPasien)
+      $pathKKDatabase = $folderName . '/' . $FotoKK;
+      $pathKTPDatabase = $folderName . '/' . $FotoKTP;
+      
+      $Query = "INSERT INTO pasien_baru(nama_pasien, foto_kk, foto_ktp, nik, tanggal_lahir, usia)
+                VALUES ('$NamaLengkap', '$pathKKDatabase', '$pathKTPDatabase', '$NIK', '$TanggalLahir', '$Usia')";
+
+      if (mysqli_query($Connection, $Query)) {
+        echo '
+          <script>
+          alert("Data Berhasil Ditambahkan...")
+          location.href="../Frontend/Dashboard.html"
+          </script>
+          ';
+      } else {
+        echo "Error: " . mysqli_error($Connection);
+      }
+    } else {
+      echo '
+        <script>
+        alert("Gagal mengunggah file!");
+        </script>
+        ';
+    }
+  } else {
+    echo '
+        <script>
+        alert("Pastikan Foto KTP atau Foto KK Terunggah Dengan Benar!");
+        </script>
+        ';
+  }
+}
+?>
