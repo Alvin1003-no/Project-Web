@@ -211,8 +211,8 @@ if (isset($_POST['SimpanData'])) {
       mkdir($folderPathKTP, 0777, true);
     }
 
-    $filePathKTP = $foldername . $FotoKTP;
-    $filePathKK = $foldername . $FotoKK;
+    $filePathKTP = $folderPathKTP . $FotoKTP;
+    $filePathKK = $folderPathKK . $FotoKK;
 
     if (move_uploaded_file($TempKK, $filePathKK) && move_uploaded_file($TempKTP, $filePathKTP)) {
       $PathKKDatabase = $foldername . '/' . $FotoKK;
