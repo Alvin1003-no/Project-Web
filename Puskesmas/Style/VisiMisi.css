@@ -4,17 +4,31 @@
     margin-bottom: -20px;
     margin-left: 710px;
 }
-.bold{
-    font-size: 30px;
-}
-.posisi
-{
+.Tengah{
     margin-top: 100px;
-    margin-left: 400px;
-    margin-right: 300px;
-    text-align:"center";
+    margin-bottom: 580px;
+    margin-left: 90px;
+    width: 90%;
 }
-.circle
-{
-    margin-left: -20px;
+
+.Sub{
+    font-weight: 600;
+    font-size: 28px;
+    margin-bottom: 25px;
+    text-align: center;
+    color: white;
 }
+
+.IsiSub{
+    font-size: 26px;
+    margin-left: 60px;
+}
+
+.Bungkus{
+    width: 200px;
+    height: 40px;
+    border-radius: 15px;
+    background-color: #006400;
+}
+
+
