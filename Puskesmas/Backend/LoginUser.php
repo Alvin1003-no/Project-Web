@@ -42,7 +42,7 @@
         <div class="right-box">
             <h2>Halo!</h2>
             <p>Belum Memiliki Akun Puskesemas Gambirsari ?</p>
-            <button class="register-btn">Buat Akun</button>
+            <a href="RegisterUser.php" class="register-btn">Buat Akun</a>
         </div>
     </div>
 
@@ -107,4 +107,5 @@
         </svg>
     </div>
 </body>
+
 </html>
