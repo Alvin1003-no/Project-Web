@@ -9,7 +9,7 @@
     margin-top: 100px;
     margin-bottom: 20px;
     font-size: 30px;
-    margin-left: 380px;
+    margin-left: 400px;
     margin-right: 200px;
 }
 
@@ -20,4 +20,26 @@
 
 .jawaban {
     display: none;
+
+}
+
+.Pertanyaan{
+    margin-left: 20px;
+    font-size: 34px;
+    color: white;
+}
+
+.Point{
+    font-size: 25px;
+    color: white;
+}
+
+
+
+.Bungkus{
+    width: 800px;
+    height: 55px;
+    border-radius: 15px;
+    background-color: #006400;
+    margin-bottom: 10px;
 }
