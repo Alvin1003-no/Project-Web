@@ -15,7 +15,7 @@ img{
 }
 
 .Tengah{
-    margin-top: -1150px;
+    margin-top: -1130px;
     margin-left: 500px;
     display: flex;
     justify-content: center;
@@ -23,7 +23,7 @@ img{
 
 .kotakluar{
     width: 800px;
-    height: 620px;
+    height: 420px;
     background-color: white;
     border-radius: 10px;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.3)
@@ -41,46 +41,23 @@ img{
 }
 
 .NIK{
-    width: 280px;
-    margin-left: 390px;
     margin-top: -38px;
+    margin-left: 400px;
+    width: 280px;
 }
 
 .NIK .form-control{
     width: 280px;
 }
 
-.Pekerjaan{
-    width: 380px;
-}
-
-.Pekerjaan .form-control{
-    width: 300px;
-}
-
-.GayaHidup{
-    width: 300px;
-    margin-top: -70px;
-    margin-left: 400px;
-}
-
-.GayaHidup .form-check-label{
-    margin-top: -10px;
-    margin-right: 10px;
-}
-
-.GayaHidup label{
-    margin-left: 0px;
-}
-
-.BeratBadan{
-    margin-left: 190px;
-    width: 165px;
-}
-
-.BeratBadan .form-control{
+.Tanggal{
     margin-top: -38px;
-    width: 165px;
+    margin-left: 180px;
+    width: 200px;
+}
+
+.Tanggal .form-control{
+    width: 200px;
 }
 
 .Usia {
