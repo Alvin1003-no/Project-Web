@@ -1,3 +1,8 @@
+<?php
+
+include "Service/Connection.php";
+
+?>
 <!DOCTYPE html>
 <html lang="id">
 
@@ -39,7 +44,7 @@
             <h1>Formulir Pendaftaran Medical Check Up</h1>
             <p>Isi Formulir Dengan Benar!</p>
           </div>
-          <form action="" method="post">
+          <form action="" method="post" enctype="multipart/form-data">
             <label>Nama Lengkap</label>
             <input type="text" name="Nama" class="form-control" required placeholder="Sesuai Dengan KK">
 
@@ -76,15 +81,15 @@
 
             <div class="FotoKTP">
               <label>Foto KTP</label>
-              <input type="file" name="KTP" class="foto form-control" accept="image/*" capture="enviroment" required>
+              <input type="file" name="KTP" class="foto form-control" accept=".jpg , .jpeg , .png" capture="enviroment" required>
             </div>
 
             <div class="FotoKK">
               <label>Foto KK</label>
-              <input type="file" name="KK" class="foto form-control" accept="image/*" capture="enviroment" required>
+              <input type="file" name="KK" class="foto form-control" accept=".jpg , .jpeg , .png" capture="enviroment" required>
             </div>
             <button type="submit" style="background-color: #006400;
-             margin-top: 10px; margin-left: 50px; margin-right: 20px;">Simpan Data</button>
+             margin-top: 10px; margin-left: 50px; margin-right: 20px;" name="SimpanData">Simpan Data</button>
             <button type="button" style="background-color: gray;" onclick="location.href='../FrontEnd/DaftarOnline.html'">Kembali</button>
           </form>
 
@@ -174,3 +179,72 @@
 </body>
 
 </html>
+
+<?php
+
+if (isset($_POST['SimpanData'])) {
+  $NamaLengkap = mysqli_real_escape_string($Connection, $_POST['Nama']);
+  $Usia = mysqli_real_escape_string($Connection, $_POST['Usia']);
+  $BeratBadan = mysqli_real_escape_string($Connection, $_POST['BeratBadan']);
+  $NIK = mysqli_real_escape_string($Connection, $_POST['NIK']);
+  $Pekerjaan = mysqli_real_escape_string($Connection, $_POST['Pekerjaan']);
+  $GayaHidup = mysqli_real_escape_string($Connection, $_POST['GayaHidup']);
+  $RiwayatPenyakit = mysqli_real_escape_string($Connection, $_POST['Riwayat']);
+  $Obat = mysqli_real_escape_string($Connection, $_POST['Obat']);
+
+  $FotoKTP = $_FILES['KTP']['name'];
+  $FotoKK = $_FILES['KK']['name'];
+
+  $TempKTP = $_FILES['KTP']['tmp_name'];
+  $TempKK = $_FILES['KK']['tmp_name'];
+
+  if (!empty($FotoKK) && !empty($FotoKTP)) {
+    $foldername = "Data Medical CheckUp " . preg_replace('/[^A-Za-z0-9]/', '_', $NamaLengkap);
+    $folderPathKK = 'Data Medical CheckUp/FotoKK/' . $foldername . '/';
+    $folderPathKTP = 'Data Medical CheckUp/FotoKTP/' . $foldername . '/';
+
+    if (!is_dir($folderPathKK)) {
+      mkdir($folderPathKK, 0777, true);
+    }
+
+    if (!is_dir($folderPathKTP)) {
+      mkdir($folderPathKTP, 0777, true);
+    }
+
+    $filePathKTP = $foldername . $FotoKTP;
+    $filePathKK = $foldername . $FotoKK;
+
+    if (move_uploaded_file($TempKK, $filePathKK) && move_uploaded_file($TempKTP, $filePathKTP)) {
+      $PathKKDatabase = $foldername . '/' . $FotoKK;
+      $PathKTPDatabase = $foldername . '/' . $FotoKTP;
+
+      $Query = "INSERT INTO medical_checkup(nama_lengkap , usia , berat_badan , nik , pekerjaan , gaya_hidup , riwayat_penyakit , riwayat_alergi , foto_kk , foto_ktp)
+      VALUES ('$NamaLengkap' , '$Usia' , '$BeratBadan' , '$NIK' , '$Pekerjaan' , '$GayaHidup' , '$RiwayatPenyakit' , '$Obat' , '$PathKKDatabase' , '$PathKTPDatabase')";
+
+      if (mysqli_query($Connection, $Query)) {
+        echo '
+          <script>
+          alert("Data Berhasil Ditambahkan...")
+          location.href="../Frontend/Dashboard.html"
+          </script>
+          ';
+      } else {
+        echo "Error: " . mysqli_error($Connection);
+      }
+    } else {
+      echo '
+        <script>
+        alert("Gagal mengunggah file!");
+        </script>
+        ';
+    }
+  } else {
+    echo '
+        <script>
+        alert("Pastikan Foto KTP atau Foto KK Terunggah Dengan Benar!");
+        </script>
+        ';
+  }
+}
+
+?>
