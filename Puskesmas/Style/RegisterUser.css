@@ -1,0 +1,82 @@
+.register-wrapper {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+
+.BannerGambar {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.register-card {
+    position: absolute;
+    top: 32%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 800px;
+    height: 500px;
+
+    display: flex;
+    border-radius: 15px;
+    overflow: hidden;
+    z-index: 5;
+}
+
+/* KOTAK KIRI = ABU */
+.register-left {
+    width: 50%;
+    background-color: #E5E5EC;
+    padding: 40px;
+    text-align: center;
+}
+
+/* KOTAK KANAN = BIRU */
+.register-right {
+    width: 50%;
+    background-color: #7DA0C3;
+    padding: 40px;
+    color: white;
+}
+
+/* Input */
+.reg-input {
+    width: 100%;
+    padding: 10px;
+    margin: 12px 0 20px 0;
+    border: none;
+    border-radius: 20px;
+    background: #d9d9d9;
+}
+
+/* Tombol Login di kiri */
+.to-login-btn {
+    width: 60%;
+    padding: 10px;
+    background: #6C9BD1;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+/* Tombol Register di kanan */
+.submit-register {
+    width: 60%;
+    padding: 10px;
+    background: #d9d9d9;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.logo {
+    margin-top: 30px;
+    margin-left: 30px;
+    width: 250px;
+    height: 80px;
+}
+
