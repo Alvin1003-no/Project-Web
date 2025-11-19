@@ -1,0 +1,290 @@
+<?php
+
+include "Service/Connection.php";
+
+session_start();
+
+if (empty($_SESSION['login'])) {
+    echo '
+    
+        <script>
+        
+        alert("Kamu Belum Login Ya....");
+        location.href="LoginAdmin.php";
+
+        </script>
+    
+    ';
+}
+
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puskesmas kartasura</title>
+
+    <!-- Link Bootstrap -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+        crossorigin="anonymous" />
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous" />
+    <!-- Link Css -->
+    <link rel="stylesheet" href="../Style/Hover/HoverHalamanUtama.css" />
+    <link rel="stylesheet" href="../Style/HalamanUtama.css" />
+
+    <!-- Link CSS Baru -->
+    <link rel="stylesheet" href="../Style/DashboardAdmin.css">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="Dashboard.html"><img src="../Assets/Logo Puskesmas.png" /></a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarScroll"
+                aria-controls="navbarScroll"
+                aria-expanded="false"
+                aria-span="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul
+                    class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+                    style="--bs-scroll-height: 100px; gap: 50px">
+                    <li class="nav-item">
+                        <a
+                            class="nav-link active"
+                            aria-current="page"
+                            href="../Backend/Dahboard.php">
+                            <span class="hover-underline-animation center">Beranda</span></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a
+                            class="nav-link active dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <span>Database</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="CrudAntrian.php">Cek Antrian</a>
+                            </li>
+                            <li><a class="dropdown-item" href="CrudPasien.php">Daftar Pasien</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            class="nav-link active"
+                            aria-current="page"
+                            href="FormPasienBaru.php"><span class="hover-underline-animation center">Tambah Data Baru</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                            class="nav-link active"
+                            aria-current="page"
+                            href="LogoutAdmin.php"><span class="hover-underline-animation center">Log Out</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Container -->
+    <div class="banner-card">
+        <img src="../Assets/Batik.png" class="Batik" />
+        <div class="banner-text">
+            <p class="Welcome">SELAMAT DATANG DI</p>
+            <p class="Place">PUSKESMAS KARTASURA</p>
+        </div>
+    </div>
+
+    <!-- Pelayanan -->
+    <p class="Pelayanan">Kami Siap Membantu Pekerjaan Anda!</p>
+    <p class="PlaceKartasura">Admin Puskesmas Kartasura</p>
+
+    <!-- Jam Pelayanan -->
+    <p class="Jam">Jam Operasional</p>
+
+    <div class="Circle">
+        <div class="IconJam">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="31"
+                height="31"
+                fill="currentColor"
+                class="bi bi-clock"
+                viewBox="0 0 16 16">
+                <path
+                    d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71z" />
+                <path
+                    d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16m7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0" />
+            </svg>
+        </div>
+    </div>
+
+    <div class="HariPertama">
+        <p class="Day">Senin - Kamis</p>
+        <p class="Clock">08.00 - 14.00</p>
+    </div>
+    <div class="HariKedua">
+        <p class="Day">Jum'at</p>
+        <p class="Clock">07.30 - 14.00</p>
+    </div>
+    <div class="HariKetiga">
+        <p class="Day">Sabtu</p>
+        <p class="Clock">07.30 - 12.00</p>
+    </div>
+
+    <div class="CircleDua">
+        <div class="Telephone">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="31"
+                height="31"
+                fill="currentColor"
+                class="bi bi-telephone"
+                viewBox="0 0 16 16">
+                <path
+                    d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.6 17.6 0 0 0 4.168 6.608 17.6 17.6 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.68.68 0 0 0-.58-.122l-2.19.547a1.75 1.75 0 0 1-1.657-.459L5.482 8.062a1.75 1.75 0 0 1-.46-1.657l.548-2.19a.68.68 0 0 0-.122-.58zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.68.68 0 0 0 .178.643l2.457 2.457a.68.68 0 0 0 .644.178l2.189-.547a1.75 1.75 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.6 18.6 0 0 1-7.01-4.42 18.6 18.6 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877z" />
+            </svg>
+        </div>
+    </div>
+
+    <div class="NoTelp">
+        <p class="Telp">No Telp</p>
+        <p class="No">0858-7647-5201</p>
+    </div>
+
+    <!-- Tengah  -->
+    <img class="Tengah" src="../Assets/Pemanis.png" />
+
+    <div class="ProgramLayanan">
+        <p class="Sub">Update!</p>
+        <p class="Judul">Antrian Pasien Hari Ini</p>
+    </div>
+
+        <!-- Tengah Table -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Nama Pasien</th>
+                    <th>Usia</th>
+                    <th class="Poli">Poli Tujuan</th>
+                    <th class="Nomor">Nomor Antrian</th>
+                    <th class="Status">Status</th>
+                    <th class="Histori">Histori</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+    <div class="Tombol">
+      <a href="CrudAntrian.php">
+        <button type="button" class="btn liquid">
+          <span>Selengkapnya→</span>
+        </button>
+      </a>
+    </div>
+
+    <div class="kotak">
+        <img src="../Assets/pemerintah.png" />
+        <div class="kirifooter">
+            <label>Puskesmas Kartasura</label>
+            <p>
+                Jl. Jenderal Sudirman, Dusun III, Pucangan, Kec. Kartasura, Kabupaten
+                Sukoharjo, Jawa Tengah 57168
+            </p>
+            <p>puskemas.kartasura@sukoharjokab.go.id</p>
+        </div>
+
+        <div class="kananfooter">
+            <label>Sosial Media</label>
+            <ul class="ul">
+                <li>
+                    <a href="https://www.facebook.com/pkm.kartasura"> <i class="fab fa-facebook-f icon"></i> </a>
+                </li>
+                <li>
+                    <a href="https://www.instagram.com/puskesmas_kartasura?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram icon"></i></i></a>
+                </li>
+                <li>
+                    <a href="https://api.whatsapp.com/send?phone=6285876475201&text=___________________________%0A%20%20%20%20%F0%9D%91%BA%F0%9D%92%86%F0%9D%92%8D%F0%9D%92%82%F0%9D%92%8E%F0%9D%92%82%F0%9D%92%95%20%F0%9D%92%85%F0%9D%92%82%F0%9D%92%95%F0%9D%92%82%F0%9D%92%8F%F0%9D%92%88%20%F0%9D%92%85%F0%9D%92%8A%20%F0%9D%91%AF%F0%9D%92%90%F0%9D%92%95%F0%9D%92%8D%F0%9D%92%8A%F0%9D%92%8F%F0%9D%92%86%0A%20%E2%84%99%F0%9D%95%8C%F0%9D%95%8A%F0%9D%95%82%F0%9D%94%BC%F0%9D%95%8A%F0%9D%95%84%F0%9D%94%B8%F0%9D%95%8A%20%F0%9D%95%82%F0%9D%94%B8%E2%84%9D%F0%9D%95%8B%F0%9D%94%B8%F0%9D%95%8A%F0%9D%95%8C%E2%84%9D%F0%9D%94%B8%0A___________________________%0A%0A"><i class="fab fa-whatsapp icon"></i></a>
+                </li>
+                <li>
+                    <a href="https://www.youtube.com/@Puskesmas_Kartasura"><i class="fab fa-youtube icon"></i></a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="garis">
+            <hr />
+        </div>
+
+        <div class="pojokbawah">
+            <label>2025 © ProjectPraktikumWeb</label>
+        </div>
+    </div>
+
+    <div class="location">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            fill="currentColor"
+            class="bi bi-geo-alt"
+            viewBox="0 0 16 16">
+            <path
+                d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A32 32 0 0 1 8 14.58a32 32 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10" />
+            <path
+                d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4m0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+        </svg>
+    </div>
+
+    <div class="email">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="22"
+            height="22"
+            fill="currentColor"
+            class="bi bi-envelope"
+            viewBox="0 0 16 16">
+            <path
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+        </svg>
+    </div>
+</body>
+
+</html>
