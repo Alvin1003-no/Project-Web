@@ -6,9 +6,10 @@ session_destroy();
 echo'
     <script>
     alert("Berhasil Logout!")
-    location.href="LoginAdmin.php"
+    location.href="Login.php"
     </script>
 
 
 ';
+
 ?>
