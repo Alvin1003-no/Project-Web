@@ -1,0 +1,102 @@
+.Welcome{
+    margin-left: 650px;
+}
+
+.KotakJudul{
+    width: 469px;
+    height: 64px;
+    padding-top: 10px;
+    margin-top: 50px;
+    margin-left: 100px;
+    background-color: #006400;
+}
+
+.KotakJudul2{
+    width: 469px;
+    height: 64px;
+    padding-top: 10px;
+    margin-left: 670px;
+    margin-top: 40px;
+    background-color: #006400;
+}
+
+.KotakJudul3{
+    width: 469px;
+    height: 64px;
+    padding-top: 10px;
+    margin-left: 1190px;
+    position: absolute;
+    margin-top: -484px;
+    background-color: #006400;
+}
+
+.Kjudul{
+    font-size: 32px;
+    color: white;
+    text-align: center;
+}
+
+.KotakIsi{
+    width: 469px;
+    height: 371px;
+    background-color: #006400;
+    padding-top: 40px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: 100px;
+}
+
+.KotakIsi2{
+    width: 469px;
+    height: 371px;
+    background-color: #006400;
+    padding-top: 40px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    margin-left: 670px;
+}
+
+.KotakIsi3{
+    width: 469px;
+    height: 371px;
+    background-color: #006400;
+    padding-top: 40px;
+    margin-top: -390px;
+    margin-bottom: 20px;
+    margin-left: 1190px;
+}
+
+.Nomor{
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+
+.Kisi{
+    font-size: 96px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+}
+
+.Youtube{
+    width: 980px;
+    height: 463px;
+    background-color: #D9D9D9;
+    margin-top: -490px;
+    margin-left: 670px;
+}
+
+iframe{
+    width: 980px;
+    height: 463px;
+}
+
+button{
+    border: none;
+    width: 283px;
+    height: 35px;
+    border-radius: 30px;
+    margin-left: 90px;
+}

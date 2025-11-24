@@ -1,0 +1,47 @@
+.Poli{
+    margin-top: -38px;
+    margin-left: 180px;
+}
+
+.Poli .form-control{
+    width: 280px;
+}
+
+.Nama .form-control{
+    width: 460px;
+}
+
+.KotakTambahan{
+    background-color: #006400;
+    width: 256px;    
+    height: 421px;
+    margin-top: -288px;
+    margin-left: 545px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding-top: 100px;
+}
+
+.KotakTambahan h1{
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.KotakTambahan p{
+    color: white;
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.kotakdalam{
+    width: 550px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.kotakdalam h1{
+    font-size: 30px;
+}
