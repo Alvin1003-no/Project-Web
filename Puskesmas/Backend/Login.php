@@ -1,10 +1,23 @@
+<?php
+session_start();
+
+if (isset($_GET['redirect'])) {
+    $_SESSION['redirect'] = $_GET['redirect'];
+}
+
+if (isset($_GET['poli'])) {
+    $_SESSION['poli'] = $_GET['poli'];  // simpan poli ke session sementara
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - Admin</title>
+    <title>Login</title>
 
     <!-- Link Bootstrap -->
     <link
@@ -39,9 +52,9 @@
             <div class="Tengah">
                 <div class="kotakluar">
                     <div class="kotakdalam">
-                        <h1>Login - Admin</h1>
+                        <h1>Login</h1>
                     </div>
-                    <form action="ProsesLoginAdmin.php" method="post" enctype="multipart/form-data">
+                    <form action="ProsesLogin.php" method="post" enctype="multipart/form-data">
                         <label>Username</label>
                         <input type="text" name="usn" class="form-control" required>
 
@@ -54,7 +67,7 @@
 
                     <div class="kotakkanan">
                         <h1>Halo!</h1>
-                        <p>"Selamat datang kembali, Bapak/Ibu petugas puskesmas yang luar biasa! Terima kasih atas dedikasi dan ketulusan hati dalam melayani setiap pasien. Semangat dan senyum ikhlas Anda adalah energi positif yang menyembuhkan."</p>
+                        <p>"Selamat datang di Puskesmas Kartasura. Kami hadir untuk melayani Anda dengan mudah dalam satu sentuhan."</p>
                     </div>
                 </div>
             </div>
