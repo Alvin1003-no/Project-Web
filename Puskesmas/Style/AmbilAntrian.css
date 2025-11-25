@@ -80,6 +80,20 @@
     text-align: center;
 }
 
+.Judul{
+    font-size: 20px;
+    color: white;
+    text-align: center;
+    margin-top: -20px;
+}
+
+.Selanjutnya{
+    font-size: 22px;
+    color: white;
+    text-align: center;
+    margin-top: -10px;
+}
+
 .Youtube{
     width: 980px;
     height: 463px;
