@@ -125,7 +125,7 @@ if(isset($_GET['selesai'])){
                         <a
                             class="nav-link active"
                             aria-current="page"
-                            href="FormPasienBaru.php"><span class="hover-underline-animation center">Tambah Data Baru</span></a>
+                            href="FormPasienBarubyAdmin.php"><span class="hover-underline-animation center">Tambah Data Baru</span></a>
                     </li>
                     <li class="nav-item">
                         <a
@@ -331,3 +331,4 @@ if(isset($_GET['selesai'])){
 </body>
 
 </html>
+
