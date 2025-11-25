@@ -201,10 +201,11 @@ if(isset($_POST['Simpan'])){
   echo'
   <script>
   alert("Berhasil Mengambil Antrian")
-  location.href="../FrontEnd/Dashboard.html"
+  location.href="AmbilAntrian.php"
   </script>
   ';
 }
 
 
 ?>
+
