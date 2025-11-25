@@ -58,3 +58,15 @@ button{
     border: none;
     margin-left: 50px;
 }
+
+.Nothing{
+    font-size: 20px;
+    text-align: center;
+    margin-top:100px;
+}
+
+.Back{
+    font-size: 18px;
+    margin-left: 810px;
+    color: red;
+}
