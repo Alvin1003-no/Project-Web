@@ -41,7 +41,7 @@ include "Service/Connection.php";
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="Dashboard.html"><img src="../Assets/Logo Puskesmas.png" /></a>
+            <a class="navbar-brand" href="Dashboard.php"><img src="../Assets/Logo Puskesmas.png" /></a>
             <button
                 class="navbar-toggler"
                 type="button"
