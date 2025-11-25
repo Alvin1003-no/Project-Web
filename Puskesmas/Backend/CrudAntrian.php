@@ -1,3 +1,34 @@
+<?php
+include "Service/Connection.php";
+
+
+if (isset($_GET['panggil'])) {
+    $id_pasien = $_GET['panggil'];
+    $QueryAksi = "UPDATE antrian SET status='dipanggil' WHERE id_antrian='$id_pasien'";
+    $Result = mysqli_query($Connection, $QueryAksi);
+
+    echo '
+    <script>
+    alert("Proses Pemanggilan Pasien! - Pemanggilan Berhasil")
+    location.href="CrudAntrian.php"
+    </script>
+    ';
+}
+
+if (isset($_GET['selesai'])) {
+    $id_pasien = $_GET['selesai'];
+    $QueryAksi = "UPDATE antrian SET status='selesai' WHERE id_antrian='$id_pasien'";
+    $Result = mysqli_query($Connection, $QueryAksi);
+
+    echo '
+    <script>
+    alert("Berhasil Mengubah Status Pasien")
+    location.href="CrudAntrian.php"
+    </script>
+    ';
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -105,31 +136,47 @@
     </div>
 
 
-        <!-- Tengah Table -->
-        <table class="table table-striped table-bordered">
-            <thead>
+    <!-- Tengah Table -->
+    <table class="table table-striped table-bordered">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Nama Pasien</th>
+                <th>Usia</th>
+                <th class="Poli">Poli Tujuan</th>
+                <th class="Nomor">Nomor Antrian</th>
+                <th class="Status">Status</th>
+                <th class="Histori">Histori</th>
+                <th class="Aksi">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $Nomor = 1;
+            $Query = mysqli_query($Connection, "SELECT * FROM antrian");
+            while ($ShowData = mysqli_fetch_array($Query)) {
+            ?>
                 <tr>
-                    <th>No.</th>
-                    <th>Nama Pasien</th>
-                    <th>Usia</th>
-                    <th class="Poli">Poli Tujuan</th>
-                    <th class="Nomor">Nomor Antrian</th>
-                    <th class="Status">Status</th>
-                    <th class="Histori">Histori</th>
+                    <td><?php echo $Nomor++ ?></td>
+                    <td><?php echo $ShowData['nama_lengkap'] ?></td>
+                    <td><?php echo $ShowData['usia'] . " Tahun " ?></td>
+                    <td><?php echo $ShowData['poli'] ?></td>
+                    <td><?php echo str_pad($ShowData['nomor_antrian'], 3, "0", STR_PAD_LEFT) ?></td>
+                    <td><?php echo $ShowData['status'] ?></td>
+                    <td><?php echo $ShowData['histori'] ?></td>
+                    <td><a href="CrudAntrian.php?panggil=<?php echo $ShowData['id_antrian'] ?>">
+                            <button style="background-color : #ffa500">Panggil</button>
+                        </a>
+                        <a href="CrudAntrian.php?selesai=<?php echo $ShowData['id_antrian'] ?>">
+                            <button type="button" style="background-color: #1167b1;">Selesai</button>
+                        </a>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
 
     <div class="kotak">
         <img src="../Assets/pemerintah.png" />
