@@ -11,31 +11,6 @@
     width: 460px;
 }
 
-.KotakTambahan{
-    background-color: #006400;
-    width: 256px;    
-    height: 421px;
-    margin-top: -288px;
-    margin-left: 545px;
-    border-top-right-radius: 12px;
-    border-bottom-right-radius: 12px;
-    padding-top: 100px;
-}
-
-.KotakTambahan h1{
-    color: white;
-    font-size: 30px;
-    font-weight: 700;
-    text-align: center;
-}
-
-.KotakTambahan p{
-    color: white;
-    font-size: 30px;
-    font-weight: 700;
-    text-align: center;
-}
-
 .kotakdalam{
     width: 550px;
     border-top-right-radius: 0px;
@@ -44,4 +19,80 @@
 
 .kotakdalam h1{
     font-size: 30px;
+}
+
+.Kkanan{
+    margin-top: -280px;
+    margin-left: 550px;
+}
+
+.Kkanan img{
+    width: 70px;
+    height: 70px;
+    margin-left: 90px;
+}
+
+.Tempat{
+    text-align: center;
+    font-weight: 600;
+}
+
+.Kpanjang{
+    width: 250px;
+    height: 3px;
+    background-color: red;
+    margin-top: -15px;
+}
+
+.Sub{
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: red;
+}
+
+.No{
+    text-align: center;
+    font-size: 22px;
+    margin-top: -18px;
+}
+
+.NomorAntrian{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.Bawah{
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: 30px;
+}
+
+.Bawah2{
+    text-align: center;
+    font-size: 17px;
+    font-weight: 600;
+    margin-top: -20px;
+}
+
+.KotakBawah{
+    width: 250px;
+    height: 99px;
+    background-color: red;
+    border-bottom-right-radius: 10px;
+    padding-top: 20px;
+    margin-top: -5px;
+}
+
+.KotakBawah p{
+    text-align: center;
+    font-size: 19px;
+    font-weight: 600;
+    color: white;
+}
+
+.Bagian2{
+    margin-top: -24px;
 }
