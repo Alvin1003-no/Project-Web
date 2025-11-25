@@ -107,50 +107,121 @@ include "Service/Connection.php";
 
     <div class="ProgramLayanan">
         <p class="Sub">Update!</p>
+
         <form action="" method="post">
             <input type="search" name="Search" class="form-control" placeholder="Cari...">
             <div class="SearchButton">
-                <button type="submit">Cari Data</button>
+                <button type="submit" name="caridata">Cari Data</button>
             </div>
         </form>
     </div>
+    <?php
+    $CariData = isset($_POST['caridata']);
+    // jika sedang mencari data
+    if ($CariData) {
 
+        $keyword = $_POST['Search'];
 
-    <!-- Tengah Table -->
-    <table class="table table-striped table-bordered">
-        <thead>
-            <tr>
-                <th>No.</th>
-                <th>Nama Pasien</th>
-                <th>Usia</th>
-                <th class="Tanggal">Tanggal Lahir</th>
-                <th class="NIK">Nomor Induk Kependudukan</th>
-                <th class="Histori">Histori</th>
-                <th>Aksi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            $Nomor = 1;
-            $Query = mysqli_query($Connection, "SELECT * FROM pasien_baru");
+        // Query pencarian 
+        $Query = mysqli_query($Connection, "
+            SELECT * FROM pasien_baru 
+            WHERE nama_pasien LIKE '%$keyword%' 
+               OR nik LIKE '%$keyword%'
+        ");
+        // pilih semua data dari tabel pasien_baru dimana nama_pasien mirip dengan keywordnya 
+        // atau nik mirip dengan keyword
 
-            while ($ShowData = mysqli_fetch_array($Query)) {
-            ?>
+        if (mysqli_num_rows($Query) > 0) {
+    ?>
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Nama Pasien</th>
+                        <th>Usia</th>
+                        <th class="Tanggal">Tanggal Lahir</th>
+                        <th class="NIK">Nomor Induk Kependudukan</th>
+                        <th class="Histori">Histori</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php
+                    $Nomor = 1;
+                    while ($ShowData = mysqli_fetch_array($Query)) {
+                    ?>
+                        <tr>
+                            <td><?= $Nomor++ ?></td>
+                            <td><?= $ShowData['nama_pasien'] ?></td>
+                            <td><?= $ShowData['usia'] ?></td>
+                            <td><?= $ShowData['tanggal_lahir'] ?></td>
+                            <td><?= $ShowData['nik'] ?></td>
+                            <td><?= $ShowData['created_at'] ?></td>
+                            <td>
+                                <a href="DeleteDataPasien.php?id_pasien=<?= $ShowData['id_pasien'] ?>"
+                                    class="Hapus"
+                                    onclick="return confirm('Apakah Anda Yakin Menghapus Data <?= $ShowData['nama_pasien'] ?> ?')">
+                                    Hapus
+                                </a>
+                            </td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+
+            </table>
+
+    <?php
+        } else {
+            echo "<p>Tidak ada data ditemukan.</p>";
+        }
+    }
+    ?>
+
+<!-- Jika tidak sedang mencari data -->
+
+    <?php
+    if (!$CariData) {
+    ?>
+        <!-- Tengah Table -->
+        <table class="table table-striped table-bordered">
+            <thead>
                 <tr>
-                    <td><?php echo $Nomor++ ?></td>
-                    <td><?php echo $ShowData['nama_pasien'] ?></td>
-                    <td><?php echo $ShowData['usia'] ?></td>
-                    <td><?php echo $ShowData['tanggal_lahir'] ?></td>
-                    <td><?php echo $ShowData['nik'] ?></td>
-                    <td><?php echo $ShowData['created_at'] ?></td>
-                    <td><a href="DeleteDataPasien.php?id_pasien=<?php echo $ShowData['id_pasien'] ?>" class="Hapus" onclick="return confrim('Apakah Anda Yakin Menghapus Data <?php echo $ShowData['nama_pasien'] ?>')">Hapus</a></td>
+                    <th>No.</th>
+                    <th>Nama Pasien</th>
+                    <th>Usia</th>
+                    <th class="Tanggal">Tanggal Lahir</th>
+                    <th class="NIK">Nomor Induk Kependudukan</th>
+                    <th class="Histori">Histori</th>
+                    <th>Aksi</th>
                 </tr>
-            <?php
-            }
-            ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php
+                $Nomor = 1;
+                $Query = mysqli_query($Connection, "SELECT * FROM pasien_baru");
 
+                while ($ShowData = mysqli_fetch_array($Query)) {
+                ?>
+                    <tr>
+                        <td><?php echo $Nomor++ ?></td>
+                        <td><?php echo $ShowData['nama_pasien'] ?></td>
+                        <td><?php echo $ShowData['usia'] . " Tahun" ?></td>
+                        <td><?php echo $ShowData['tanggal_lahir'] ?></td>
+                        <td><?php echo $ShowData['nik'] ?></td>
+                        <td><?php echo $ShowData['created_at'] ?></td>
+                        <td><a href="DeleteDataPasien.php?id_pasien=<?php echo $ShowData['id_pasien'] ?>" class="Hapus" onclick="return confrim('Apakah Anda Yakin Menghapus Data <?php echo $ShowData['nama_pasien'] ?>')">
+                            <button type="button" style="background-color: #dd0e15ff;">Hapus</button>
+                        </a></td>
+                    </tr>
+                <?php
+                }
+                ?>
+            </tbody>
+        </table>
+    <?php
+    }
+    ?>
     <div class="kotak">
         <img src="../Assets/pemerintah.png" />
         <div class="kirifooter">
