@@ -40,4 +40,13 @@
 .Tombol button{
     width: 500px;
     height: 60px;
+
+}
+
+button{
+    border: none;
+    width: 89px;
+    height: 40px;
+    border-radius: 3px;
+    color: white;
 }
