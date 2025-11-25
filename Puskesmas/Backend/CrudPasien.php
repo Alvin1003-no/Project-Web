@@ -162,7 +162,7 @@ include "Service/Connection.php";
                                 <a href="DeleteDataPasien.php?id_pasien=<?= $ShowData['id_pasien'] ?>"
                                     class="Hapus"
                                     onclick="return confirm('Apakah Anda Yakin Menghapus Data <?= $ShowData['nama_pasien'] ?> ?')">
-                                    Hapus
+                                    <button type="button" style="background-color: #dd0e15ff;">Hapus</button>
                                 </a>
                             </td>
                         </tr>
@@ -173,12 +173,15 @@ include "Service/Connection.php";
 
     <?php
         } else {
-            echo "<p>Tidak ada data ditemukan.</p>";
+    ?>
+        <p class="Nothing">Data Tidak Ditemukan!</p>
+        <a href="CrudPasien.php" class="Back">Kembali</a>
+    <?php
         }
     }
     ?>
 
-<!-- Jika tidak sedang mencari data -->
+    <!-- Jika tidak sedang mencari data -->
 
     <?php
     if (!$CariData) {
@@ -211,8 +214,8 @@ include "Service/Connection.php";
                         <td><?php echo $ShowData['nik'] ?></td>
                         <td><?php echo $ShowData['created_at'] ?></td>
                         <td><a href="DeleteDataPasien.php?id_pasien=<?php echo $ShowData['id_pasien'] ?>" class="Hapus" onclick="return confrim('Apakah Anda Yakin Menghapus Data <?php echo $ShowData['nama_pasien'] ?>')">
-                            <button type="button" style="background-color: #dd0e15ff;">Hapus</button>
-                        </a></td>
+                                <button type="button" style="background-color: #dd0e15ff;">Hapus</button>
+                            </a></td>
                     </tr>
                 <?php
                 }
