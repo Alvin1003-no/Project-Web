@@ -10,13 +10,39 @@ if (empty($_SESSION['login'])) {
         <script>
         
         alert("Kamu Belum Login Ya....");
-        location.href="LoginAdmin.php";
+        location.href="Login.php";
 
         </script>
     
     ';
 }
 
+
+if (isset($_GET['panggil'])) {
+    $id_pasien = $_GET['panggil'];
+    $QueryAksi = "UPDATE antrian SET status='dipanggil' WHERE id_antrian='$id_pasien'";
+    $Result = mysqli_query($Connection , $QueryAksi);
+
+    echo '
+    <script>
+    alert("Proses Pemanggilan Pasien! - Pemanggilan Berhasil")
+    location.href="CrudAntrian.php"
+    </script>
+    ';
+}
+
+if(isset($_GET['selesai'])){
+    $id_pasien = $_GET['selesai'];
+    $QueryAksi = "UPDATE antrian SET status='selesai' WHERE id_antrian='$id_pasien'";
+    $Result = mysqli_query($Connection , $QueryAksi);
+
+    echo '
+    <script>
+    alert("Berhasil Mengubah Status Pasien")
+    location.href="CrudAntrian.php"
+    </script>
+    ';
+}
 
 ?>
 
@@ -105,7 +131,7 @@ if (empty($_SESSION['login'])) {
                         <a
                             class="nav-link active"
                             aria-current="page"
-                            href="LogoutAdmin.php"><span class="hover-underline-animation center">Log Out</span></a>
+                            href="Logout.php"><span class="hover-underline-animation center">Log Out</span></a>
                     </li>
                 </ul>
             </div>
@@ -197,18 +223,35 @@ if (empty($_SESSION['login'])) {
                     <th class="Nomor">Nomor Antrian</th>
                     <th class="Status">Status</th>
                     <th class="Histori">Histori</th>
+                    <th class="Aksi">Aksi</th>
                 </tr>
             </thead>
             <tbody>
+                <?php
+                $Nomor = 1;
+                $Query = mysqli_query( $Connection , "SELECT * FROM antrian LIMIT 3");
+                while($ShowData = mysqli_fetch_array($Query))
+                {
+                    ?>
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td><?php echo $Nomor++ ?></td>
+                    <td><?php echo $ShowData['nama_lengkap'] ?></td>
+                    <td><?php echo $ShowData['usia'] . " Tahun" ?></td>
+                    <td><?php echo $ShowData['poli'] ?></td>
+                    <td><?php echo str_pad($ShowData['nomor_antrian'] , 3 , "0" , STR_PAD_LEFT)?></td>
+                    <td><?php echo $ShowData['status']?></td>
+                    <td><?php echo $ShowData['histori'] ?></td>
+                    <td><a href="Dashboard.php?panggil=<?php echo $ShowData['id_antrian'] ?>" >
+                        <button type="button" style="background-color: #ffa500 ;">Panggil</button>
+                    </a>
+                    <a href="Dashboard.php?selesai=<?php echo $ShowData['id_antrian'] ?>" >
+                        <button type="button" style="background-color: #1167b1 ;">Selesai</button>
+                    </a>
+                </td>   
                 </tr>
+            <?php
+            }
+            ?>
             </tbody>
         </table>
 
