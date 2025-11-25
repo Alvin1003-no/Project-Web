@@ -1,7 +1,39 @@
 <?php
-
 include "Service/Connection.php";
 
+// membuat fungsi dengan parameter connection untuk koneksi dengan database
+// dan parameter politujuan untuk nama poli yang akan dicari antrian saat ini
+// $politujuan itu diambil dari url yang sudah dibuat ketika login
+// contoh : <a href="Login.php?redirect=checkup&poli=check%20up"> dia membawa paramter poli 
+function AmbilAntrianSaatIni($Connection, $PoliTujuan)
+{
+    $Query = "SELECT nomor_antrian 
+            FROM antrian 
+            WHERE poli='$PoliTujuan' AND status='dipanggil'
+            ORDER BY nomor_antrian ASC
+            LIMIT 1";
+    // mengambil data dari kolom nomor antrian dari tabel database antrian
+    // dimana poli nya berdasarkan politujuan dan statusnya adalah dipanggil
+    // urutkan dari nomor yang terkecil
+    // limit 1 itu hanya mengambil 1 data teratas atau nomornya kecil
+
+    $res = mysqli_query($Connection, $Query);
+    // res ini untuk menjalankan perintah query dengan koneksi dan query diatas
+    $row = mysqli_fetch_assoc($res);
+    // akan mengambil data perbarisnya dalam bentuk array
+    return $row ? str_pad($row['nomor_antrian'], 3, "0", STR_PAD_LEFT) : "-";
+    // if versi singkatnya menggunakan ? atau ini adalah operator tenary
+    // apabila $row berisi data dengan status dipanggil maka akan format nomor antriannya
+    // str_pad itu fungsi format berarti akan format per baris dari kolom antrian
+    // 3 itu artinya 3 digit
+    // 0 itu karakter yang ingin ditambah
+    // std_pad_left berati karakter 0 akan di tambah di kiri
+}
+
+
+$antrianUmum = AmbilAntrianSaatIni($Connection, "Poliklinik Umum");
+$antrianIbuAnak = AmbilAntrianSaatIni($Connection, "Poliklinik Ibu dan Anak");
+$antrianCheckup = AmbilAntrianSaatIni($Connection, "Medical Check Up");
 ?>
 
 <!DOCTYPE html>
@@ -119,7 +151,7 @@ include "Service/Connection.php";
 
 <div class="KotakIsi">
     <h1 class="Nomor">Nomor Antrian</h1>
-    <p class="Kisi">001</p>
+    <p class="Kisi"><?php echo $antrianUmum ?></p>
     <a href="Login.php?redirect=klinikumum&poli=poliklinik%20umum">
         <button type="submit">Ambil Antrian</button>
     </a>
@@ -137,7 +169,7 @@ include "Service/Connection.php";
 
 <div class="KotakIsi2">
     <h1 class="Nomor">Nomor Antrian</h1>
-    <p class="Kisi">001</p>
+<p class="Kisi"><?php echo $antrianIbuAnak ?></p>
     <a href="Login.php?redirect=ibuanak&poli=poliklinik%20ibu%20dan%20anak">
         <button type="submit">Ambil Antrian</button>
     </a>
@@ -153,7 +185,7 @@ include "Service/Connection.php";
 
 <div class="KotakIsi3">
     <h1 class="Nomor">Nomor Antrian</h1>
-    <p class="Kisi">001</p>
+    <p class="Kisi"><?php echo $antrianCheckup ?></p>
     <a href="Login.php?redirect=checkup&poli=check%20up">
         <button type="submit">Ambil Antrian</button>
     </a>
@@ -229,3 +261,4 @@ include "Service/Connection.php";
 </div>
 
 </html>
+
