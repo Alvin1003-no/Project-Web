@@ -49,3 +49,12 @@ form{
     background-color: #006400;
     color: white;
 }
+
+button{
+    width: 89px;
+    height: 35px;
+    border-radius: 3px;
+    color: white;
+    border: none;
+    margin-left: 50px;
+}
