@@ -33,7 +33,7 @@ $NomorAntrian = str_pad($NomorBerikutnya , 3 , "0" , STR_PAD_LEFT);
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Form Klinik Umum | Puskesmas Kartasura</title>
+  <title>Form Medical CheckUp | Puskesmas Kartasura</title>
 
   <!-- Link Bootstrap -->
   <link
@@ -66,7 +66,7 @@ $NomorAntrian = str_pad($NomorBerikutnya , 3 , "0" , STR_PAD_LEFT);
       <div class="Tengah">
         <div class="kotakluar">
           <div class="kotakdalam">
-            <h1>Formulir Pendaftaran Check Up</h1>
+            <h1>Formulir Pendaftaran CheckUp</h1>
             <p>Isi Formulir Dengan Benar!</p>
           </div>
           <form action="" method="post" enctype="multipart/form-data">
@@ -88,9 +88,19 @@ $NomorAntrian = str_pad($NomorBerikutnya , 3 , "0" , STR_PAD_LEFT);
             <button type="button" style="background-color: gray;" onclick="location.href='../Frontend/DaftarOnline.html'">Kembali</button>
           </form>
 
-          <div class="KotakTambahan">
-            <h1>Nomor Antrian Anda</h1>
-            <p><?php echo $NomorAntrian ?></p>
+<div class="Kkanan">
+            <img src="../Assets/Logo Puskesmas.png">
+            <p class="Tempat">Puskesmas Kartasura</p>
+            <div class="Kpanjang" style="background-color : #663399"></div>
+            <p class="Sub" style="color: #663399;">PENDAFTARAN</p>
+            <p class="No">No. Antrian Anda</p>
+            <p class="NomorAntrian"><?php echo $NomorAntrian ?></p>
+            <p class="Bawah">Terimakasih</p>
+            <p class="Bawah2">Anda Telah Menunggu</p>
+            <div class="KotakBawah" style="background-color : #663399">
+              <p>Nomor Antrian</p>
+              <p class="Bagian2">Poliklinik Umum</p>
+            </div>
           </div>
         </div>
       </div>
@@ -191,9 +201,10 @@ if(isset($_POST['Simpan'])){
   echo'
   <script>
   alert("Berhasil Mengambil Antrian")
-  location.href="../FrontEnd/Dashboard.html"
+  location.href="AmbilAntrian.php"
   </script>
   ';
 }
+
 
 ?>
