@@ -83,7 +83,7 @@ if(isset($_GET['selesai'])){
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="Dashboard.html"><img src="../Assets/Logo Puskesmas.png" /></a>
+            <a class="navbar-brand" href="Dashboard.php"><img src="../Assets/Logo Puskesmas.png" /></a>
             <button
                 class="navbar-toggler"
                 type="button"
@@ -102,7 +102,7 @@ if(isset($_GET['selesai'])){
                         <a
                             class="nav-link active"
                             aria-current="page"
-                            href="../Backend/Dahboard.php">
+                            href="Dashboard.php">
                             <span class="hover-underline-animation center">Beranda</span></a>
                     </li>
                     <li class="nav-item dropdown">
@@ -125,7 +125,7 @@ if(isset($_GET['selesai'])){
                         <a
                             class="nav-link active"
                             aria-current="page"
-                            href="FormPasienBarubyAdmin.php"><span class="hover-underline-animation center">Tambah Data Baru</span></a>
+                            href="FormPasienBaruByAdmin.php"><span class="hover-underline-animation center">Tambah Data Baru</span></a>
                     </li>
                     <li class="nav-item">
                         <a
@@ -331,4 +331,3 @@ if(isset($_GET['selesai'])){
 </body>
 
 </html>
-
