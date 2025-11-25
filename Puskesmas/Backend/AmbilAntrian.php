@@ -11,13 +11,16 @@ function AmbilAntrianSaatIni($Connection, $PoliTujuan)
             WHERE poli='$PoliTujuan' AND status='dipanggil'
             ORDER BY nomor_antrian ASC
             LIMIT 1";
+
+
     $res = mysqli_query($Connection, $Query);
-    // res ini untuk menjalankan perintah query dengan koneksi dan query diatas
+
     $row = mysqli_fetch_assoc($res);
-    // akan mengambil data perbarisnya dalam bentuk array
+
     return $row ? str_pad($row['nomor_antrian'], 3, "0", STR_PAD_LEFT) : "-";
     // if versi singkatnya menggunakan ? atau ini adalah operator tenary
-
+    // apabila $row berisi data dengan status dipanggil maka akan format nomor antriannya
+   
 }
 
 function AmbilAntrianSelanjutnya($Connection , $PoliTujuan)
@@ -79,7 +82,7 @@ $AntrianSlnjtnyaCheckUp = AmbilAntrianSelanjutnya($Connection , "Medical Check U
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="Dashboard.html"><img src="../Assets/Logo Puskesmas.png" /></a>
+        <a class="navbar-brand" href="../Frontend/Dashboard.html"><img src="../Assets/Logo Puskesmas.png" /></a>
         <button
             class="navbar-toggler"
             type="button"
@@ -98,7 +101,7 @@ $AntrianSlnjtnyaCheckUp = AmbilAntrianSelanjutnya($Connection , "Medical Check U
                     <a
                         class="nav-link active"
                         aria-current="page"
-                        href="Dashboard.html">
+                        href="../Frontend/Dashboard.html">
                         <span class="hover-underline-animation center">Beranda</span></a>
                 </li>
                 <li class="nav-item dropdown">
