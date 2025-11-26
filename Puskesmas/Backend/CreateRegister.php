@@ -1,9 +1,10 @@
 <?php
 include("Service/Connection.php"); 
 
-$username  = $_GET['username'];
-$password  = $_GET['password'];
-$ulangpass = $_GET['ulangpass'];
+$nama = $_POST['nama'];
+$username  = $_POST['username'];
+$password  = $_POST['password'];
+$ulangpass = $_POST['ulangpass'];
 
 if ($password !== $ulangpass) {
     echo "<script>alert('Password tidak sama!'); window.history.back();</script>";
@@ -11,14 +12,15 @@ if ($password !== $ulangpass) {
 }
 
 $query = mysqli_query($Connection,
-    "INSERT INTO users (username, password)
-     VALUES ('$username', '$password')"
+    "INSERT INTO users (nama,username, password)
+     VALUES ('$nama','$username', '$password')"
 );
 
 if ($query) {
-    header("Location: LoginUser.php");
+    header("Location: Login.php");
     exit();
 } else {
     echo "Gagal register!";
 }
 ?>
+
