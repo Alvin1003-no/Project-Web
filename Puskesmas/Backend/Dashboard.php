@@ -21,7 +21,7 @@ if (empty($_SESSION['login'])) {
 if (isset($_GET['panggil'])) {
     $id_pasien = $_GET['panggil'];
     $QueryAksi = "UPDATE antrian SET status='dipanggil' WHERE id_antrian='$id_pasien'";
-    $Result = mysqli_query($Connection , $QueryAksi);
+    $Result = mysqli_query($Connection, $QueryAksi);
 
     echo '
     <script>
@@ -31,10 +31,10 @@ if (isset($_GET['panggil'])) {
     ';
 }
 
-if(isset($_GET['selesai'])){
+if (isset($_GET['selesai'])) {
     $id_pasien = $_GET['selesai'];
     $QueryAksi = "UPDATE antrian SET status='selesai' WHERE id_antrian='$id_pasien'";
-    $Result = mysqli_query($Connection , $QueryAksi);
+    $Result = mysqli_query($Connection, $QueryAksi);
 
     echo '
     <script>
@@ -100,7 +100,7 @@ if(isset($_GET['selesai'])){
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul
                     class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-                    style="--bs-scroll-height: 100px; gap: 50px; margin-left: 800px;">
+                    style="--bs-scroll-height: 100px; gap: 50px; margin-left: 600px;">
                     <li class="nav-item">
                         <a
                             class="nav-link active"
@@ -121,7 +121,12 @@ if(isset($_GET['selesai'])){
                             <li>
                                 <a class="dropdown-item" href="CrudAntrian.php">Cek Antrian</a>
                             </li>
-                            <li><a class="dropdown-item" href="CrudPasien.php">Daftar Pasien</a></li>
+                            <li>
+                                <a class="dropdown-item" href="CrudPasien.php">Daftar Pasien</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="CrudCheckUp.php">Daftar Pasien Check Up</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -129,6 +134,12 @@ if(isset($_GET['selesai'])){
                             class="nav-link active"
                             aria-current="page"
                             href="FormPasienBaruByAdmin.php"><span class="hover-underline-animation center">Tambah Data Baru</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                        class="nav-link active"
+                        aria-current="page"
+                        href="FormMedicalCheckUpbyAdmin.php"><span class="hover-underline-animation center">Tambah Pasien Check Up</span></a>
                     </li>
                     <li class="nav-item">
                         <a
@@ -215,55 +226,54 @@ if(isset($_GET['selesai'])){
         <p class="Judul">Antrian Pasien Hari Ini</p>
     </div>
 
-        <!-- Tengah Table -->
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>No.</th>
-                    <th>Nama Pasien</th>
-                    <th>Usia</th>
-                    <th class="Poli">Poli Tujuan</th>
-                    <th class="Nomor">Nomor Antrian</th>
-                    <th class="Status">Status</th>
-                    <th class="Histori">Histori</th>
-                    <th class="Aksi">Aksi</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $Nomor = 1;
-                $Query = mysqli_query( $Connection , "SELECT * FROM antrian LIMIT 3");
-                while($ShowData = mysqli_fetch_array($Query))
-                {
-                    ?>
+    <!-- Tengah Table -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Nama Pasien</th>
+                <th>Usia</th>
+                <th class="Poli">Poli Tujuan</th>
+                <th class="Nomor">Nomor Antrian</th>
+                <th class="Status">Status</th>
+                <th class="Histori">Histori</th>
+                <th class="Aksi">Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            $Nomor = 1;
+            $Query = mysqli_query($Connection, "SELECT * FROM antrian LIMIT 3");
+            while ($ShowData = mysqli_fetch_array($Query)) {
+            ?>
                 <tr>
                     <td><?php echo $Nomor++ ?></td>
                     <td><?php echo $ShowData['nama_lengkap'] ?></td>
                     <td><?php echo $ShowData['usia'] . " Tahun" ?></td>
                     <td><?php echo $ShowData['poli'] ?></td>
-                    <td><?php echo str_pad($ShowData['nomor_antrian'] , 3 , "0" , STR_PAD_LEFT)?></td>
-                    <td><?php echo $ShowData['status']?></td>
+                    <td><?php echo str_pad($ShowData['nomor_antrian'], 3, "0", STR_PAD_LEFT) ?></td>
+                    <td><?php echo $ShowData['status'] ?></td>
                     <td><?php echo $ShowData['histori'] ?></td>
-                    <td><a href="Dashboard.php?panggil=<?php echo $ShowData['id_antrian'] ?>" >
-                        <button type="button" style="background-color: #ffa500 ;">Panggil</button>
-                    </a>
-                    <a href="Dashboard.php?selesai=<?php echo $ShowData['id_antrian'] ?>" >
-                        <button type="button" style="background-color: #1167b1 ;">Selesai</button>
-                    </a>
-                </td>   
+                    <td><a href="Dashboard.php?panggil=<?php echo $ShowData['id_antrian'] ?>">
+                            <button type="button" style="background-color: #ffa500;">Panggil</button>
+                        </a>
+                        <a href="Dashboard.php?selesai=<?php echo $ShowData['id_antrian'] ?>">
+                            <button type="button" style="background-color: #1167b1;">Selesai</button>
+                        </a>
+                    </td>
                 </tr>
             <?php
             }
             ?>
-            </tbody>
-        </table>
+        </tbody>
+    </table>
 
     <div class="Tombol">
-      <a href="CrudAntrian.php">
-        <button type="button" class="btn liquid">
-          <span>Selengkapnya→</span>
-        </button>
-      </a>
+        <a href="CrudAntrian.php">
+            <button type="button" class="btn liquid">
+                <span>Selengkapnya→</span>
+            </button>
+        </a>
     </div>
 
     <div class="kotak">
@@ -334,5 +344,3 @@ if(isset($_GET['selesai'])){
 </body>
 
 </html>
-
-
