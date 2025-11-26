@@ -42,10 +42,10 @@
         <div class="register-right">
             <h2 style="text-align:center;">REGISTER</h2>
 
-            <form action="CreateRegister.php" method="GET">
+            <form action="CreateRegister.php" method="post">
                 <label>Nama</label>
                 <input type="text" class="form-control" name="nama" required>
-                
+
                 <label>Username :</label>
                 <input type="text" class="form-control" name="username" required>
 
