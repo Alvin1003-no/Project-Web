@@ -77,6 +77,9 @@ $AntrianSlnjtnyaCheckUp = AmbilAntrianSelanjutnya($Connection , "Medical Check U
     <link rel="stylesheet" href="../Style/Hover/HoverDaftarOnline.css" />
     <link rel="stylesheet" href="../Style/DaftarOnline.css" />
     <link rel="stylesheet" href="../Style/AmbilAntrian.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image" href="../Assets/Logo Puskesmas.png">
 </body>
 
 <!-- Navbar -->
@@ -279,3 +282,4 @@ $AntrianSlnjtnyaCheckUp = AmbilAntrianSelanjutnya($Connection , "Medical Check U
 </div>
 
 </html>
+
