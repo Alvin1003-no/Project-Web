@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="../Style/Hover/HoverHalamanUtama.css" />
     <link rel="stylesheet" href="../Style/HalamanUtama.css" />
     <link rel="stylesheet" href="../style/RegisterUser.css" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image" href="../Assets/Logo Puskesmas.png">
 </head>
 <body>
     <div class="register-wrapper">
@@ -120,4 +123,5 @@
 </body>
 
 </html>
+
 
