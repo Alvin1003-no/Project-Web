@@ -60,6 +60,9 @@ if (isset($_GET['selesai'])) {
 
     <!-- Link CSS Baru -->
     <link rel="stylesheet" href="../Style/CrudAntrian.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image" href="../Assets/Logo Puskesmas.png">
 </head>
 
 <body>
@@ -246,3 +249,4 @@ if (isset($_GET['selesai'])) {
 </body>
 
 </html>
+
