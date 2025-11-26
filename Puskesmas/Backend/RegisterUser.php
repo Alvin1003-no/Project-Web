@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Register</title>
     <!-- Link Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
@@ -22,7 +22,7 @@
 <body>
     <div class="register-wrapper">
 
-    <img src="../Assets/BatikLogin.png" class="BannerGambar">
+    <img src="../Assets/Batik - Login.png" class="BannerGambar">
 
     <div class="register-card">
 
@@ -30,7 +30,9 @@
         <div class="register-left">
             <h2>Halo!</h2>
             <p>Sudah Memiliki Akun Puskesmas Gambirsari ?</p>
-             <a href="LoginUser.php" class="to-login-btn">Login</a>
+             <a href="Login.php">
+                <button type="button" class="login-btn">Login</button>
+             </a>
         </div>
 
         <!-- KANAN (Biru) -->
@@ -39,13 +41,13 @@
 
             <form action="CreateRegister.php" method="GET">
                 <label>Username :</label>
-                <input type="text" class="reg-input" name="username">
+                <input type="text" class="form-control" name="username">
 
                 <label>Password :</label>
-                <input type="password" class="reg-input" name="password">
+                <input type="password" class="form-control" name="password">
 
                 <label>Ulangi Password :</label>
-                <input type="password" class="reg-input" name="ulangpass">
+                <input type="password" class="form-control" name="ulangpass">
 
             <button class="submit-register">Register</button>
             </form>
@@ -118,3 +120,4 @@
 </body>
 
 </html>
+
