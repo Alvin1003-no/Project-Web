@@ -21,16 +21,24 @@
     color: white;
 }
 
-.Poli , .Nomor{
+.Poli {
     width: 250px;
 }
 
+.Nomor{
+    width: 180px;
+}
+
 .Status{
-    width: 380px;
+    width: 280px;
 }
 
 .Histori{
     width: 200px;
+}
+
+.Aksi{
+    width: 220px;
 }
 
 .Tombol{
@@ -40,12 +48,11 @@
 .Tombol button{
     width: 500px;
     height: 60px;
-
 }
 
 button{
     border: none;
-    width: 89px;
+    width: 90px;
     height: 40px;
     border-radius: 3px;
     color: white;
