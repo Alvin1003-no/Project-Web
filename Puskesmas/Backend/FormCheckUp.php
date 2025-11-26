@@ -57,6 +57,9 @@ $NomorAntrian = str_pad($NomorBerikutnya , 3 , "0" , STR_PAD_LEFT);
   <link rel="stylesheet" href="../Style/FormPasienBaru.css" />
   <link rel="stylesheet" href="../Style/Hover/HoverPasien.css" />
   <link rel="stylesheet" href="../Style/Form.css"/>
+
+  <!-- Favicon -->
+    <link rel="icon" type="image" href="../Assets/Logo Puskesmas.png">
 </head>
 
 <body>
@@ -208,3 +211,4 @@ if(isset($_POST['Simpan'])){
 
 
 ?>
+
