@@ -44,13 +44,13 @@
 
             <form action="CreateRegister.php" method="GET">
                 <label>Username :</label>
-                <input type="text" class="form-control" name="username">
+                <input type="text" class="form-control" name="username" required>
 
                 <label>Password :</label>
-                <input type="password" class="form-control" name="password">
+                <input type="password" class="form-control" name="password" required>
 
                 <label>Ulangi Password :</label>
-                <input type="password" class="form-control" name="ulangpass">
+                <input type="password" class="form-control" name="ulangpass" required>
 
             <button class="submit-register">Register</button>
             </form>
@@ -123,5 +123,6 @@
 </body>
 
 </html>
+
 
 
