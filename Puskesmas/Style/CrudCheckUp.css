@@ -1,0 +1,60 @@
+.Sub{
+    font-size: 40px;
+    margin-top: 80px;
+}
+
+.table{
+    width: 90%;
+    margin-left: 90px;
+    margin-top: 50px;
+}
+
+.table thead th{
+    background-color: #006400;
+    color: white;
+}
+
+form{
+    width: 400px;
+}
+
+.form-control{
+    width: 400px;
+    border-radius: 5px;
+}
+
+.SearchButton{
+    margin-top: -38px;
+    margin-left: 420px;
+    width: 120px;
+}
+
+.SearchButton button{
+    border: none;
+    width: 120px;
+    height: 38px;
+    border-radius: 5px;
+    background-color: #006400;
+    color: white;
+}
+
+button{
+    width: 89px;
+    height: 35px;
+    border-radius: 3px;
+    color: white;
+    border: none;
+    margin-left: 50px;
+}
+
+.Nothing{
+    font-size: 20px;
+    text-align: center;
+    margin-top:100px;
+}
+
+.Back{
+    font-size: 18px;
+    margin-left: 810px;
+    color: red;
+}
