@@ -33,6 +33,9 @@ include "Service/Connection.php";
   <!-- Link CSS -->
   <link rel="stylesheet" href="../Style/FormPasienBaru.css" />
   <link rel="stylesheet" href="../Style/Hover/HoverPasien.css" />
+
+  <!-- Favicon -->
+    <link rel="icon" type="image" href="../Assets/Logo Puskesmas.png">
 </head>
 
 <body>
@@ -242,3 +245,4 @@ if (isset($_POST['Simpan'])) {
   }
 }
 ?>
+
