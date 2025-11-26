@@ -38,7 +38,6 @@ if (isset($_GET['poli'])) {
         crossorigin="anonymous" />
 
     <!-- Link CSS -->
-    <link rel="stylesheet" href="../Style/FormPasienBaru.css" />
     <link rel="stylesheet" href="../Style/Hover/HoverPasien.css" />
 
     <!-- Link CSS Baru -->
@@ -61,7 +60,7 @@ if (isset($_GET['poli'])) {
                         <label>Password</label>
                         <input type="password" name="pass" class="form-control" required>
 
-                        <button type="submit" style="background-color: #006400; 
+                        <button type="submit" style="background-color: #6C9BD1; 
              margin-top: 30px; margin-left: 50px; margin-right: 20px;" name="Login">Login</button>
                     </form>
 
