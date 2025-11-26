@@ -22,7 +22,7 @@
 
     display: flex;
     border-radius: 15px;
-    overflow: hidden;
+    /* overflow: hidden; */
     z-index: 5;
 }
 
@@ -32,45 +32,69 @@
     background-color: #E5E5EC;
     padding: 40px;
     text-align: center;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+}
+
+
+.register-left h2{
+    color: #6C9BD1;
+    font-weight: 700;
+    margin-top: 100px;
+}
+
+.register-left p{
+    color: #6C9BD1;
+    font-weight: 600;
 }
 
 /* KOTAK KANAN = BIRU */
 .register-right {
     width: 50%;
-    background-color: #7DA0C3;
+    background-color: #6d98c9;
     padding: 40px;
     color: white;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.register-right h2{
+    font-weight: 700;
 }
 
 /* Input */
-.reg-input {
+.form-control {
     width: 100%;
-    padding: 10px;
     margin: 12px 0 20px 0;
     border: none;
-    border-radius: 20px;
-    background: #d9d9d9;
+    border-radius: 10px;
+    background: #ebeaea;
 }
 
 /* Tombol Login di kiri */
-.to-login-btn {
-    width: 60%;
-    padding: 10px;
+.login-btn{
+    width: 75%;
+    padding: 5px;
     background: #6C9BD1;
     color: white;
     border: none;
     border-radius: 20px;
     cursor: pointer;
+    font-size: 18px;
 }
 
 /* Tombol Register di kanan */
 .submit-register {
     width: 60%;
-    padding: 10px;
-    background: #d9d9d9;
+    padding: 4px;
+    background: #fff;
     border: none;
     border-radius: 20px;
     cursor: pointer;
+    color: #6C9BD1;
+    font-size: 19px;
 }
 
 .logo {
@@ -79,4 +103,3 @@
     width: 250px;
     height: 80px;
 }
-
