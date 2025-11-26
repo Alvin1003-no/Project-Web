@@ -17,7 +17,12 @@ $query = mysqli_query($Connection,
 );
 
 if ($query) {
-    header("Location: Login.php");
+    echo '
+    <script>
+    alert("Berhasil Membuat Akun!")
+    location.href="../Frontend/Dashboard.html"
+    </script>
+    ';
     exit();
 } else {
     echo "Gagal register!";
