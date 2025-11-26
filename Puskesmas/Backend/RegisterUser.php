@@ -43,6 +43,9 @@
             <h2 style="text-align:center;">REGISTER</h2>
 
             <form action="CreateRegister.php" method="GET">
+                <label>Nama</label>
+                <input type="text" class="form-control" name="nama" required>
+                
                 <label>Username :</label>
                 <input type="text" class="form-control" name="username" required>
 
@@ -123,6 +126,4 @@
 </body>
 
 </html>
-
-
 
