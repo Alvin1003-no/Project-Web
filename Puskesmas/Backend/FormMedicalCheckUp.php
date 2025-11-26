@@ -32,6 +32,9 @@ include "Service/Connection.php";
   <!-- Link CSS -->
   <link rel="stylesheet" href="../Style/FormMedical.css" />
   <link rel="stylesheet" href="../Style/Hover/HoverMedical.css" />
+
+  <!-- Favicon -->
+    <link rel="icon" type="image" href="../Assets/Logo Puskesmas.png">
 </head>
 
 <body>
@@ -248,3 +251,4 @@ if (isset($_POST['SimpanData'])) {
 }
 
 ?>
+
