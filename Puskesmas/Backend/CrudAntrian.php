@@ -83,7 +83,7 @@ if (isset($_GET['selesai'])) {
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul
                     class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-                    style="--bs-scroll-height: 100px; gap: 50px; margin-left: 800px;">
+                    style="--bs-scroll-height: 100px; gap: 50px; margin-left: 600px;">
                     <li class="nav-item">
                         <a
                             class="nav-link active"
@@ -104,14 +104,25 @@ if (isset($_GET['selesai'])) {
                             <li>
                                 <a class="dropdown-item" href="CrudAntrian.php">Cek Antrian</a>
                             </li>
-                            <li><a class="dropdown-item" href="CrudPasien.php">Daftar Pasien</a></li>
+                            <li>
+                                <a class="dropdown-item" href="CrudPasien.php">Daftar Pasien</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="CrudCheckUp.php">Daftar Pasien Check Up</a>
+                            </li>
                         </ul>
                     </li>
                     <li class="nav-item">
                         <a
                             class="nav-link active"
                             aria-current="page"
-                            href="FormPasienBaru.php"><span class="hover-underline-animation center">Tambah Data Baru</span></a>
+                            href="FormPasienBarubyAdmin.php"><span class="hover-underline-animation center">Tambah Data Baru</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a
+                        class="nav-link active"
+                        aria-current="page"
+                        href="FormMedicalCheckUpbyAdmin.php"><span class="hover-underline-animation center">Tambah Pasien Check Up</span></a>
                     </li>
                     <li class="nav-item">
                         <a
@@ -249,5 +260,3 @@ if (isset($_GET['selesai'])) {
 </body>
 
 </html>
-
-
