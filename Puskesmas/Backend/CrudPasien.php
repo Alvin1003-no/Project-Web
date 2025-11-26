@@ -35,6 +35,9 @@ include "Service/Connection.php";
 
     <!-- Link CSS Baru -->
     <link rel="stylesheet" href="../Style/CrudPasien.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image" href="../Assets/Logo Puskesmas.png">
 </head>
 
 <body>
@@ -293,3 +296,4 @@ include "Service/Connection.php";
 </body>
 
 </html>
+
