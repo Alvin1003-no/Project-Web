@@ -100,7 +100,7 @@ if(isset($_GET['selesai'])){
             <div class="collapse navbar-collapse" id="navbarScroll">
                 <ul
                     class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
-                    style="--bs-scroll-height: 100px; gap: 50px">
+                    style="--bs-scroll-height: 100px; gap: 50px; margin-left: 800px;">
                     <li class="nav-item">
                         <a
                             class="nav-link active"
@@ -334,4 +334,5 @@ if(isset($_GET['selesai'])){
 </body>
 
 </html>
+
 
