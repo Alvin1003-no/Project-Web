@@ -48,7 +48,7 @@ if (mysqli_num_rows($Query) != 0) {
         if (isset($_SESSION['redirect']) && $_SESSION['redirect'] == "medicalcheckup") {
             echo '
             <script>
-            alert("Selamat Datang , Kami Akan Membantu Anda Dalam Proses Pendaftaran Pasien Baru - Login Berhasil");
+            alert("Selamat Datang , Kami Akan Membantu Anda Dalam Proses Pendaftaran Medical Check Up - Login Berhasil");
             location.href="FormMedicalCheckUp.php";
             </script>';
             exit();
