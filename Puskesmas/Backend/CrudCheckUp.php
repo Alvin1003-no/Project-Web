@@ -34,7 +34,7 @@ include "Service/Connection.php";
     <link rel="stylesheet" href="../Style/HalamanUtama.css" />
 
     <!-- Link CSS Baru -->
-    <link rel="stylesheet" href="../Style/CrudPasien.css">
+    <link rel="stylesheet" href="../Style/CrudCheckUp.css">
 
     <!-- Favicon -->
     <link rel="icon" type="image" href="../Assets/Logo Puskesmas.png">
@@ -153,13 +153,13 @@ include "Service/Connection.php";
                         <th>No.</th>
                         <th>Nama Pasien</th>
                         <th>Usia</th>
-                        <th class="Tanggal">Berat Badan</th>
-                        <th class="NIK">Nomor Induk Kependudukan</th>
-                        <th class="Pekerjaan">Pekerjaan</th>
-                        <th class="Gaya">Gaya Hidup</th>
-                        <th class="Riwayat1">Riwayat Penyakit</th>
-                        <th class="Riwayat2">Riwayat Alergi Obat</th>
-                        <th class="Histori">Histori</th>
+                        <th>Berat Badan</th>
+                        <th>Nomor Induk Kependudukan</th>
+                        <th>Pekerjaan</th>
+                        <th>Gaya Hidup</th>
+                        <th>Riwayat Penyakit</th>
+                        <th>Riwayat Alergi Obat</th>
+                        <th>Histori</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -215,13 +215,13 @@ include "Service/Connection.php";
                         <th>No.</th>
                         <th>Nama Pasien</th>
                         <th>Usia</th>
-                        <th class="Tanggal">Berat Badan</th>
-                        <th class="NIK">Nomor Induk Kependudukan</th>
-                        <th class="Pekerjaan">Pekerjaan</th>
-                        <th class="Gaya">Gaya Hidup</th>
-                        <th class="Riwayat1">Riwayat Penyakit</th>
-                        <th class="Riwayat2">Riwayat Alergi Obat</th>
-                        <th class="Histori">Histori</th>
+                        <th>Berat Badan</th>
+                        <th>Nomor Induk Kependudukan</th>
+                        <th>Pekerjaan</th>
+                        <th>Gaya Hidup</th>
+                        <th>Riwayat Penyakit</th>
+                        <th>Riwayat Alergi Obat</th>
+                        <th>Histori</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
