@@ -1,22 +1,6 @@
 <?php
 
 include "Service/Connection.php";
-session_start();
-
-if(empty($_SESSION['redirect']))
-{
-  echo '
-    
-        <script>
-        
-        alert("Kamu Belum Login Ya....");
-        location.href="LoginAdmin.php";
-
-        </script>
-    
-    ';
-    exit();
-}
 ?>
 
 <!DOCTYPE html>
@@ -259,5 +243,4 @@ if (isset($_POST['Simpan'])) {
         ';
   }
 }
-
 ?>
