@@ -91,7 +91,7 @@ $NomorAntrian = str_pad($NomorBerikutnya , 3 , "0" , STR_PAD_LEFT);
             <button type="button" style="background-color: gray;" onclick="location.href='../Frontend/DaftarOnline.html'">Kembali</button>
           </form>
 
-<div class="Kkanan">
+          <div class="Kkanan">
             <img src="../Assets/Logo Puskesmas.png">
             <p class="Tempat">Puskesmas Kartasura</p>
             <div class="Kpanjang" style="background-color : #663399"></div>
@@ -102,7 +102,7 @@ $NomorAntrian = str_pad($NomorBerikutnya , 3 , "0" , STR_PAD_LEFT);
             <p class="Bawah2">Anda Telah Menunggu</p>
             <div class="KotakBawah" style="background-color : #663399">
               <p>Nomor Antrian</p>
-              <p class="Bagian2">Poliklinik Umum</p>
+              <p class="Bagian2">Medical CheckUp</p>
             </div>
           </div>
         </div>
@@ -209,6 +209,4 @@ if(isset($_POST['Simpan'])){
   ';
 }
 
-
 ?>
-
