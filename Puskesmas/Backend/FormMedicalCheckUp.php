@@ -1,7 +1,22 @@
 <?php
 
 include "Service/Connection.php";
+session_start();
 
+if(empty($_SESSION['redirect']))
+{
+  echo '
+    
+        <script>
+        
+        alert("Kamu Belum Login Ya....");
+        location.href="Login.php";
+
+        </script>
+    
+    ';
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -70,9 +85,9 @@ include "Service/Connection.php";
 
             <div class="GayaHidup">
               <label>GayaHidup</label><br>
-              <input type="radio" name="GayaHidup" class="form-check-input" required>
+              <input type="radio" name="GayaHidup" value="Merokok" class="form-check-input" required>
               <label for="merokok" name="GayaHidup" class="form-check-label">Merokok</label>
-              <input type="radio" name="GayaHidup" class="form-check-input" required>
+              <input type="radio" name="GayaHidup" value="Tidak Merokok" class="form-check-input" required>
               <label for="tidak" name="GayaHidup" class="form-check-label">Tidak Merokok</label>
             </div>
 
@@ -251,4 +266,3 @@ if (isset($_POST['SimpanData'])) {
 }
 
 ?>
-
