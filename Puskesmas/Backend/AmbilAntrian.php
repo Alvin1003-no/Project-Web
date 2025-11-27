@@ -11,37 +11,41 @@ function AmbilAntrianSaatIni($Connection, $PoliTujuan)
             WHERE poli='$PoliTujuan' AND status='dipanggil'
             ORDER BY nomor_antrian ASC
             LIMIT 1";
-
+    // mengambil data dari kolom nomor antrian dari tabel database antrian
+    // dimana poli nya berdasarkan politujuan dan statusnya adalah dipanggil
+    // urutkan dari nomor yang terkecil
+    // limit 1 itu hanya mengambil 1 data teratas atau nomornya kecil
 
     $res = mysqli_query($Connection, $Query);
-
+    // res ini untuk menjalankan perintah query dengan koneksi dan query diatas
     $row = mysqli_fetch_assoc($res);
-
+    // akan mengambil data perbarisnya dalam bentuk array
     return $row ? str_pad($row['nomor_antrian'], 3, "0", STR_PAD_LEFT) : "-";
-    // if versi singkatnya menggunakan ? atau ini adalah operator tenary
-    // apabila $row berisi data dengan status dipanggil maka akan format nomor antriannya
-   
+    // str_pad itu fungsi format berarti akan format per baris dari kolom antrian
+    // 3 itu artinya 3 digit
+    // 0 itu karakter yang ingin ditambah
+    // std_pad_left berati karakter 0 akan di tambah di kiri
 }
 
-function AmbilAntrianSelanjutnya($Connection , $PoliTujuan)
+function AmbilAntrianSelanjutnya($Connection, $PoliTujuan)
 {
     $Query = " SELECT nomor_antrian
             FROM antrian
             WHERE poli='$PoliTujuan' AND status='menunggu'
             ORDER BY nomor_antrian ASC
             LIMIT 1";
-    $res = mysqli_query($Connection , $Query);
+    $res = mysqli_query($Connection, $Query);
     $row = mysqli_fetch_assoc($res);
-    return $row ? str_pad($row['nomor_antrian'] , 3 ,"0" , STR_PAD_LEFT ) : "-";
+    return $row ? str_pad($row['nomor_antrian'], 3, "0", STR_PAD_LEFT) : "-";
 }
 
 $AntrianUmum = AmbilAntrianSaatIni($Connection, "Poliklinik Umum");
 $AntrianIbuAnak = AmbilAntrianSaatIni($Connection, "Poliklinik Ibu dan Anak");
 $AntrianCheckUp = AmbilAntrianSaatIni($Connection, "Medical Check Up");
 
-$AntrianSlnjtnyaUmum = AmbilAntrianSelanjutnya($Connection , "Poliklinik Umum");
-$AntrianSlnjtnyaIbuAnak = AmbilAntrianSelanjutnya($Connection , "Poliklinik Ibu dan Anak");
-$AntrianSlnjtnyaCheckUp = AmbilAntrianSelanjutnya($Connection , "Medical Check Up");
+$AntrianSlnjtnyaUmum = AmbilAntrianSelanjutnya($Connection, "Poliklinik Umum");
+$AntrianSlnjtnyaIbuAnak = AmbilAntrianSelanjutnya($Connection, "Poliklinik Ibu dan Anak");
+$AntrianSlnjtnyaCheckUp = AmbilAntrianSelanjutnya($Connection, "Medical Check Up");
 ?>
 
 
@@ -141,6 +145,9 @@ $AntrianSlnjtnyaCheckUp = AmbilAntrianSelanjutnya($Connection , "Medical Check U
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="FAQ.html"><span class="hover-underline-animation center">FaQ</span></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="../Backend/RegisterUser.php"><span class="hover-underline-animation center">Register</span></a>
+                </li>
             </ul>
         </div>
     </div>
@@ -166,7 +173,7 @@ $AntrianSlnjtnyaCheckUp = AmbilAntrianSelanjutnya($Connection , "Medical Check U
     <p class="Kisi"><?php echo $AntrianUmum ?></p>
 
     <p class="Judul">Selanjutnya</p>
-    <p class="Selanjutnya"><?php echo $AntrianSlnjtnyaUmum?></p>
+    <p class="Selanjutnya"><?php echo $AntrianSlnjtnyaUmum ?></p>
     <a href="Login.php?redirect=klinikumum&poli=poliklinik%20umum">
         <button type="submit">Ambil Antrian</button>
     </a>
@@ -282,4 +289,3 @@ $AntrianSlnjtnyaCheckUp = AmbilAntrianSelanjutnya($Connection , "Medical Check U
 </div>
 
 </html>
-
