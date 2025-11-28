@@ -41,11 +41,11 @@ function AmbilAntrianSelanjutnya($Connection, $PoliTujuan)
 
 $AntrianUmum = AmbilAntrianSaatIni($Connection, "Poliklinik Umum");
 $AntrianIbuAnak = AmbilAntrianSaatIni($Connection, "Poliklinik Ibu dan Anak");
-$AntrianCheckUp = AmbilAntrianSaatIni($Connection, "Medical Check Up");
+$AntrianCheckUp = AmbilAntrianSaatIni($Connection, "Check Up");
 
 $AntrianSlnjtnyaUmum = AmbilAntrianSelanjutnya($Connection, "Poliklinik Umum");
 $AntrianSlnjtnyaIbuAnak = AmbilAntrianSelanjutnya($Connection, "Poliklinik Ibu dan Anak");
-$AntrianSlnjtnyaCheckUp = AmbilAntrianSelanjutnya($Connection, "Medical Check Up");
+$AntrianSlnjtnyaCheckUp = AmbilAntrianSelanjutnya($Connection, "Check Up");
 ?>
 
 
@@ -289,3 +289,4 @@ $AntrianSlnjtnyaCheckUp = AmbilAntrianSelanjutnya($Connection, "Medical Check Up
 </div>
 
 </html>
+
